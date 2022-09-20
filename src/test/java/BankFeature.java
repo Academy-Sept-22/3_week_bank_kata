@@ -10,10 +10,11 @@ public class BankFeature {
     @ExtendWith(MockitoExtension.class)
 
     @Mock BankConsole console;
+    @Mock Account account;
 
     @Test
     void prints_all_transactions() {
-        ATM atm = new ATM(console);
+        ATM atm = new ATM(console,account);
 
         atm.deposit(1000);
         atm.deposit(2000);
