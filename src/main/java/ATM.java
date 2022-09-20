@@ -3,20 +3,19 @@ public class ATM {
     private Account account;
 
     public ATM(BankConsole console, Account account) {
-
         this.console = console;
         this.account = account;
     }
 
-    public void deposit(int i) {
-        account.deposit(i);
+    public void deposit(int amount) {
+        account.deposit(amount);
     }
 
-    public void withdraw(int i) {
-
+    public void withdraw(int amount) {
+        account.withdraw(amount);
     }
 
     public void printStatment() {
-
+        throw new UnsupportedOperationException();
     }
 }

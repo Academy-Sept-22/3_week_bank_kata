@@ -16,7 +16,7 @@ public class ATMShould {
     ATM atm;
     @BeforeEach
     void setup(){
-        atm = new ATM(console,account);
+        atm = new ATM(console, account);
     }
     @Test
     void deposit(){
