@@ -10,7 +10,7 @@ public class BankFeature {
     @ExtendWith(MockitoExtension.class)
 
     @Mock BankConsole console;
-    Account account = new Account();
+    Account account = new Account(0);
 
     @Test
     void prints_all_transactions() {
@@ -19,7 +19,7 @@ public class BankFeature {
         atm.deposit(1000);
         atm.deposit(2000);
         atm.withdraw(500);
-        atm.printStatment();
+        atm.printStatement();
 
         InOrder inOrder = inOrder(console);
 

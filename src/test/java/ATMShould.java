@@ -5,6 +5,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.nio.charset.MalformedInputException;
+import java.util.List;
+
+import static org.mockito.BDDMockito.given;
+
 public class ATMShould {
     @ExtendWith(MockitoExtension.class)
 
@@ -28,6 +33,14 @@ public class ATMShould {
     void withdraw(){
         atm.withdraw(200);
         Mockito.verify(account).withdraw(200);
+    }
+
+    @Test
+    void printStatement(){
+        List<String> line = new
+        given(account.getTransactionList()).willReturn(line);
+        atm.printStatement();
+        Mockito.verify(console).printLine();
     }
 
 }

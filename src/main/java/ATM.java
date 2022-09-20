@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class ATM {
     private BankConsole console;
     private Account account;
@@ -15,7 +17,12 @@ public class ATM {
         account.withdraw(amount);
     }
 
-    public void printStatment() {
-        throw new UnsupportedOperationException();
+    public void printStatement() {
+        List<String> lines = account.getTransactionList();
+
+        for (String line : lines){
+            //TODO format
+            console.printLine(line);
+        }
     }
 }
