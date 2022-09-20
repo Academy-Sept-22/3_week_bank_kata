@@ -10,7 +10,7 @@ public class BankFeature {
     @ExtendWith(MockitoExtension.class)
 
     @Mock BankConsole console;
-    Account account = new Account(0);
+    Account account = new Account();
 
     @Test
     void prints_all_transactions() {

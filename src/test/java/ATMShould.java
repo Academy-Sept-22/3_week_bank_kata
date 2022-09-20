@@ -1,14 +1,17 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.nio.charset.MalformedInputException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.times;
 
 public class ATMShould {
     @ExtendWith(MockitoExtension.class)
@@ -37,10 +40,19 @@ public class ATMShould {
 
     @Test
     void printStatement(){
-        List<String> line = new
+        String header = "Date       || Amount || Balance";
+        String transactionLine = "10/01/2012 || 1000   || 1000";
+
+        List<String> line = new ArrayList<>();
+        line.add(header);
+        line.add(transactionLine);
+
         given(account.getTransactionList()).willReturn(line);
+
         atm.printStatement();
-        Mockito.verify(console).printLine();
+
+        Mockito.verify(console).printLine(header);
+        Mockito.verify(console).printLine(transactionLine);
     }
 
 }
